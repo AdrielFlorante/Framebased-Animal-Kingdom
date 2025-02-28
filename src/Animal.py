@@ -59,11 +59,7 @@ kiara = WhiteLion()
 print(kiara.display_info())  # Inherits from Lion, Mammal, and Animal
 print(kiara.make_sound())    # Still "Roar! 🦁"
 print(kiara.regulate_temperature())  # Still from Mammal
+print(kiara.camouflage())    # Unique to WhiteLion
 
 # Hunting.hunt() causes an error with tkinter when the window is closed, this is only a bandaid solution
-try:
-    print(kiara.hunt())  # Still inherited from Lion, will show an animation
-except HuntingError as e:
-    print(f"Error: {e}")
-
-print(kiara.camouflage())    # Unique to WhiteLion
+print(kiara.hunt())  # Still inherited from Lion, will show an animation

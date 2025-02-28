@@ -20,9 +20,9 @@ class Hunting(tk.Canvas):
         self.move(self.lion, 20, 0)  # Moves right
         self.after(100, self.hunt)
 
-class HuntingError(Exception):
+# class HuntingError(Exception):
     # An error exception specifically for when the animation window is closed
-    pass
+#    pass
 
 
 root = tk.Tk()

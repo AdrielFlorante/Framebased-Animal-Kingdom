@@ -1,9 +1,4 @@
 # OOP Approach with Frame-Based Concept and Type Hints
-
-# Class Hunting handles an animation with tkinter and PILLOW library
-from src.Hunting.Hunting import Hunting, HuntingError
-
-
 class Animal:
     def __init__(self, species: str, diet: str, lifespan: int, is_oviparous: bool):
         self.species: str = species
@@ -41,10 +36,11 @@ class Lion(Mammal):
 
     def hunt(self) -> str:
         try:
+            from src.Hunting.Hunting import Hunting
+
             hunting = Hunting().hunt(self)
             return "The lion is hunting in the savanna."
         except TypeError as e:
-            # raise HuntingError("Hunting animation was closed.") from e
             print("Hunting animation was closed.")  # Just prints the message
             return "The lion has stopped hunting."
 

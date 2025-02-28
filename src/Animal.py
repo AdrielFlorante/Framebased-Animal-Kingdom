@@ -1,5 +1,9 @@
 # OOP Approach with Frame-Based Concept and Type Hints
 
+# Class Hunting handles an animation with tkinter and PILLOW library
+from src.Hunting.Hunting import Hunting, HuntingError
+
+
 class Animal:
     def __init__(self, species: str, diet: str, lifespan: int, is_oviparous: bool):
         self.species: str = species
@@ -36,8 +40,13 @@ class Lion(Mammal):
         return "Roar! 🦁"
 
     def hunt(self) -> str:
-        return "The lion is hunting in the savanna."
-
+        try:
+            hunting = Hunting().hunt(self)
+            return "The lion is hunting in the savanna."
+        except TypeError as e:
+            # raise HuntingError("Hunting animation was closed.") from e
+            print("Hunting animation was closed.")  # Just prints the message
+            return "The lion has stopped hunting."
 
 # WhiteLion is a Lion (4th Layer)
 class WhiteLion(Lion):
@@ -54,5 +63,12 @@ kiara = WhiteLion()
 print(kiara.display_info())  # Inherits from Lion, Mammal, and Animal
 print(kiara.make_sound())    # Still "Roar! 🦁"
 print(kiara.regulate_temperature())  # Still from Mammal
-print(kiara.hunt())          # Still from Lion
+
+# Hunting.hunt() causes an error with tkinter when the window is closed, this is only a bandaid solution
+try:
+    kiara = Lion()
+    print(kiara.hunt())  # Still inherited from Lion, will show an animation
+except HuntingError as e:
+    print(f"Error: {e}")
+
 print(kiara.camouflage())    # Unique to WhiteLion

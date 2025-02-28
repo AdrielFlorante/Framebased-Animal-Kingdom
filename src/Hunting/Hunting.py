@@ -2,7 +2,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 
 
-class Anim(tk.Canvas):
+class Hunting(tk.Canvas):
     def __init__(self, master):
         super().__init__(master, width=400, height=200)
         self.pack()
@@ -18,6 +18,6 @@ class Anim(tk.Canvas):
 
 
 root = tk.Tk()
-anim = Anim(root)
+anim = Hunting(root)
 anim.hunt()
 root.mainloop()

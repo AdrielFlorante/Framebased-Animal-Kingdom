@@ -66,7 +66,6 @@ print(kiara.regulate_temperature())  # Still from Mammal
 
 # Hunting.hunt() causes an error with tkinter when the window is closed, this is only a bandaid solution
 try:
-    kiara = Lion()
     print(kiara.hunt())  # Still inherited from Lion, will show an animation
 except HuntingError as e:
     print(f"Error: {e}")
